@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //object 객체
+        //속성과 메서드를 가지고 있는 데이터 타입
+        //자바스크립트 기본타입
+        //number, string, boolean, null, undefined
+        let num1 = 10;
+        let str1 = "green";
+        let boolean1 = true;
+        //object
+        // { key1 : value1, key2 : value2}
+        //object 접근
+        //object.key1 , object['key1']
+        let userJob = "Job"
+        let user = {
+            name:"green",
+            age:30,
+            nickname:"abc",
+            [userJob]: "강사",
+        }
+        let user1 = {
+            name:"green",
+            age:30,
+            nickname:"abc",
+            userJob: "강사",
+        }
+        console.log(user);
+        console.log(user1);
+        let user2 ={
+            ...user1,
+            age:33
+        }
+        console.log(user2);
+        // let name = user2.name;
+        // let age = user2.age;
+        let { name , age } = user2;
+        console.log(name,age);
+
+        let universityGroup1 = ['SNUST', 'SNU', 'MIT'];
+        let universityGroup2 = ['KAIST', 'HARVARD', 'CALTECH'];
+
+        let universityGroup = [...universityGroup1, ...universityGroup2];
+
+        console.log(universityGroup);
+    </script>
+</body>
+</html>
