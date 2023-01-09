@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Car{
+            //클래스와 객체
+            //클래스는 객체를 만들어내기 위한 도구,템플릿
+            constructor(color,speed){
+                this.color = color;
+                this.wheels =4;
+                this.speed = speed;
+            }
+            drive() {
+                console.log(`차가 ${this.speed}로 달립니다`);
+            }
+        }
+        const car1 = {
+            color : "green",
+            wheels : 4
+        }
+        const car2 = {
+            color : "red",
+            wheels : 4
+        }
+        const car3 = new Car("blue",60);
+        console.log(car3);
+        car3.drive();
+
+        // static 키워드
+        // 클래스 이름을 사용해서 호출
+        // 객체에 상관없이 사용하는 메소드
+        // 클래스의 용도 : 객체 생성
+        class Article{
+            static publisher = "Grenn Coding";
+            constructor(articleNumber){
+                this.articleNumber = articleNumber;
+            }
+            static printPublisher(){
+                console.log("나는 클래스 메소드");
+            }
+            //static 붙은애는 클래스로 부른다 (객체로 부르는게 아님)
+        }
+        const article1 = new Article(10);
+        console.log(article1);
+        Article.printPublisher();
+        // article1.printPublisher(); 객체이기때문에 클래스로 부를수 없다
+        console.log(Article.publisher);
+        console.log(article1.publisher);
+
+        //오버라이딩
+        //상속 관계에 있는 부모 클래스에서 이미 정의된 메소드를 자식 클래스에서
+        //메소드로 다시 재정의 하는것
+
+        //생성자 오버라이딩
+        class Shape {
+            constructor (width, height, color){
+                this.width = width;
+                this.height = height;
+                this.color = color;
+            }
+            draw(){
+                console.log(`${this.color}로 그립니다.`);
+            }
+            gerArea(){
+                return this.width * this.height;
+            }
+        }
+        class Rectangle extends Shape{
+            //생성자 오버라이딩 
+            // constructor(width, height, color, name){
+            //     this.width = width;
+            //     this.height = height;
+            //     this.color = color;
+            //     this.name = name;
+            // } 이러면 에러가 발생
+            constructor(width, height, color, name){
+                //부모 생성자 호출
+                super(width, height, color);
+                this.name = name;
+            }
+            //오버라이딩 : 부모요소에서 정의했는데 상속받는 곳에서 재정의 하는거
+            draw(){
+                super.draw();
+                //super 보모 요소 메소드를(상속받는 대상) 호출하는법!
+                console.log(`사각형을 그립니다.`)
+            }
+        }
+        const ractangle = new Rectangle(20,20,'yellow','사각형');
+        console.log(ractangle);
+        ractangle.draw();
+
+        //instanceof 
+        //a instanceof b : a객체가 b클래스를 이용해서 만들었는지 체크
+        //맞으면 true 틀리면 false
+        console.log(ractangle instanceof Rectangle);
+        console.log(ractangle instanceof Shape);
+        console.log(ractangle instanceof Car); 
+    </script>
+</body>
+</html>

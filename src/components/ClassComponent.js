@@ -7,6 +7,13 @@ class ClassComponent extends Component{
     static propTypes ={
         name: PropTypes.string
     }
+    //사용하는 방법 (위와같음) 
+    // ClassComponent.defaultProps ={
+    //     name : "abc"
+    // }
+    // ClassComponent.propTypes = {
+    //     name: PropTypes.string.isRequired
+    // }
     render(){
         const {name,children} = this.props;
         return(
@@ -17,12 +24,8 @@ class ClassComponent extends Component{
         )
     }
 }
-// ClassComponent.defaultProps ={
-//     name : "abc"
-// }
-// ClassComponent.propTypes = {
-//     name: PropTypes.string.isRequired
-// }
+
+
 //propTypes종류
 //array : 배열
 //bool : true 혹은 false
